@@ -5,7 +5,15 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 3.0
 
-import { IFieldResolver } from "graphql-tools";
+import { GraphQLResolveInfo } from "graphql";
+import { MergeInfo } from "graphql-tools";
+
+export type IFieldResolver<TSource, TContext> = (
+  source: TSource,
+  args: { [argument: string]: any },
+  context: TContext,
+  info: GraphQLResolveInfo & { mergeInfo?: MergeInfo },
+) => any
 
 export const skip: undefined;
 
